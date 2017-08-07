@@ -1,0 +1,571 @@
+{
+	"package": "Imagga",
+	"tagline": "Imagga API",
+	"description": "The Imagga API is a set of image understanding and analysis technologies available as a web service that allows you to automate the process of analyzing, organizing and searching through large collections of unstructured images.",
+	"image": "https://logo.clearbit.com/imagga.com",
+	"repo": "",
+	"keywords": [
+		"API",
+		"Image",
+		"Analysis",
+		"Recognition",
+		"Tags",
+		"Imagga"
+	],
+	"accounts": {
+		"domain": "imagga.com",
+    "credentials": [ "key","secret" ]
+	},
+	"blocks": [
+		{
+			"name": "taggingForImageById",
+			"description": "By sending image content id to the getTaggingForImage endpoint you can get a list of many automatically suggested textual tags.",
+			"args": [
+				{
+					"name": "imageUrl",
+					"type": "List",
+					"info": "Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.",
+					"required": false
+				},
+				{
+					"name": "contentId",
+					"type": "List",
+					"info": "You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.",
+					"required": true
+				},
+				{
+					"name": "showTagInformation",
+					"type": "Select",
+					"options": ["On", "Off"],
+					"info": "Whether to return some additional information about each of the tags or not.",
+					"required": false
+				},
+				{
+					"name": "language",
+					"type": "List",
+					"info": "See all available languages in README.You can apply this parameter multiple times.",
+					"required": false
+				},
+				{
+					"name": "limit",
+					"type": "Number",
+					"info": "Limits the number of tags in the result to the number you set.",
+					"required": false
+				},
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "credential",
+					"info": "API secret.",
+					"required": true
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "taggingForImageByUrl",
+			"description": "By sending image url to the getTaggingForImage endpoint you can get a list of many automatically suggested textual tags.",
+			"args": [
+				{
+					"name": "imageUrl",
+					"type": "List",
+					"info": "Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.",
+					"required": true
+				},
+				{
+					"name": "contentId",
+					"type": "List",
+					"info": "You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.",
+					"required": false
+				},
+				{
+					"name": "showTagInformation",
+					"type": "Select",
+					 "options": ["On", "Off"],
+					"info": "Whether to return some additional information about each of the tags or not.",
+					"required": false
+				},
+				{
+					"name": "language",
+					"type": "List",
+					"info": "See all available languages in README.You can apply this parameter multiple times.",
+					"required": false
+				},
+				{
+					"name": "limit",
+					"type": "Number",
+					"info": "Limits the number of tags in the result to the number you set.",
+					"required": false
+				},
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "credential",
+					"info": "API secret.",
+					"required": true
+				}
+
+
+			],
+			"callbacks": [{
+					"name": "error",
+					"info": "Error"
+				},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "getAllCategorizers",
+			"description": "Get a list of all available categorizers for you.",
+			"args": [
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "credential",
+					"info": "API secret.",
+					"required": true
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "deleteImage",
+			"description": "Delete an uploaded file.",
+			"args": [
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "credential",
+					"info": "API secret.",
+					"required": true
+				},
+				{
+					"name": "contentId",
+					"type": "String",
+					"info": "Image content id. Image content id.Obtained with uploadImage endpoits.",
+					"required": true
+				}
+
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "uploadeImage",
+			"description": "Using the uploadeImage endpoint you can upload a file (image or video) for processing by one of the other Imagga API endpoint.",
+			"args": [
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "credential",
+					"info": "API secret.",
+					"required": true
+				},
+				{
+					"name": "imageUrl",
+					"type": "File",
+					"info": "Uploaded file.",
+					"required": true
+				}
+
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "categorizationsForImageByUrl",
+			"description": "By sending image url and categorizerId from getAllCategoriez endpoint to the categorizationsForImage endpoint you can get a list of many categorizers.",
+			"args": [
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "credential",
+					"info": "API secret.",
+					"required": true
+				},
+				{
+					"name": "categorizerId",
+					"type": "String",
+					"info": "The categorizer id.",
+					"required": true
+				},
+				{
+					"name": "imageUrl",
+					"type": "List",
+					"info": "URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.",
+					"required": true
+				},
+				{
+					"name": "contentId",
+					"type": "List",
+					"info": "You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.",
+					"required": false
+				},
+				{
+					"name": "language",
+					"type": "List",
+					"info": "See all available languages in README.You can apply this parameter multiple times.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "categorizationsForImageById",
+			"description": "By sending image url and categorizerId from getAllCategoriez endpoint to the categorizationsForImage endpoint you can get a list of many categorizers.",
+			"args": [
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "credential",
+					"info": "API secret.",
+					"required": true
+				},
+				{
+					"name": "categorizerId",
+					"type": "String",
+					"info": "The categorizer id.",
+					"required": true
+				},
+				{
+					"name": "imageUrl",
+					"type": "List",
+					"info": "URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.",
+					"required": false
+				},
+				{
+					"name": "contentId",
+					"type": "List",
+					"info": "You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.",
+					"required": true
+				},
+				{
+					"name": "language",
+					"type": "List",
+					"info": "See all available languages in README.You can apply this parameter multiple times.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "croppingsForImageByUrl",
+			"description": "The technology behind this endpoint analyzes the pixel content of each given image url in order to find the most “visually important” areas in the image.",
+			"args": [
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "String",
+					"info": "API secret.",
+					"required": true
+				},
+				{
+					"name": "imageUrl",
+					"type": "List",
+					"info": "A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.",
+					"required": true
+				},
+				{
+					"name": "contentId",
+					"type": "List",
+					"info": "You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.",
+					"required": false
+				},
+				{
+					"name": "resolutionPair",
+					"type": "List",
+					"info": "Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.",
+					"required": false
+				},
+				{
+					"name": "scaling",
+					"type": "Select",
+					"options":["On","Off"],
+					"info": "Whether the cropping coordinates should exactly match the requested resolutions or just preserve their aspect ratios and let you resize the cropped image later.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+
+		{
+			"name": "croppingsForImageById",
+			"description": "The technology behind this endpoint analyzes the pixel content of each given image content id in order to find the most “visually important” areas in the image.",
+			"args": [
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "String",
+					"info": "API secret.",
+					"required": true
+				},
+				{
+					"name": "imageUrl",
+					"type": "List",
+					"info": "A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.",
+					"required": false
+				},
+				{
+					"name": "contentId",
+					"type": "List",
+					"info": "You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.",
+					"required": true
+				},
+				{
+					"name": "resolutionPair",
+					"type": "List",
+					"info": "Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.",
+					"required": false
+				},
+				{
+					"name": "scaling",
+					"type": "Select",
+					"options":["On","Off"],
+					"info": "Whether the cropping coordinates should exactly match the requested resolutions or just preserve their aspect ratios and let you resize the cropped image later.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+
+		{
+			"name": "analyseColorForImageByUrl",
+			"description": "Analyse and extract the predominant colors from one or several url images.",
+			"args": [
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "String",
+					"info": "API secret.",
+					"required": true
+				},
+				{
+					"name": "imageUrl",
+					"type": "List",
+					"info": "Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.",
+					"required": true
+				},
+				{
+					"name": "contentId",
+					"type": "List",
+					"info": "You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.",
+					"required": false
+				},
+				{
+					"name": "extractOverallColors",
+					"type": "Select",
+					"options":["On","Off"],
+					"info": "Specify whether the overall image colors should be extracted.",
+					"required": false
+				},
+				{
+					"name": "extractObjectColors",
+					"type": "Select",
+					"options":["On","Off"],
+					"info": "pecify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "analyseColorForImageById",
+			"description": "Analyse and extract the predominant colors from one or several images content id.",
+			"args": [
+				{
+					"name": "key",
+					"type": "credential",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "String",
+					"info": "API secret.",
+					"required": true
+				},
+				{
+					"name": "imageUrl",
+					"type": "List",
+					"info": "Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.",
+					"required": false
+				},
+				{
+					"name": "contentId",
+					"type": "List",
+					"info": "You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.",
+					"required": true
+				},
+				{
+					"name": "extractOverallColors",
+					"type": "Select",
+					"options":["On","Off"],
+					"info": "Specify whether the overall image colors should be extracted.",
+					"required": false
+				},
+				{
+					"name": "extractObjectColors",
+					"type": "Select",
+					"options":["On","Off"],
+					"info": "pecify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.",
+					"required": false
+				}
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		}
+	]
+
+
+
+}
