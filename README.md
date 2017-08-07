@@ -90,7 +90,7 @@ The technology behind this endpoint analyzes the pixel content of each given ima
 | Field         | Type      | Description
 |---------------|-----------|----------
 | key           | credential| API key.
-| secret        | String    | API secret.
+| secret        | credential    | API secret.
 | imageUrl      | List      | A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.
 | contentId     | List      | You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.
 | resolutionPair| List      | Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.
@@ -102,7 +102,7 @@ The technology behind this endpoint analyzes the pixel content of each given ima
 | Field         | Type      | Description
 |---------------|-----------|----------
 | key           | credential| API key.
-| secret        | String    | API secret.
+| secret        | credential    | API secret.
 | imageUrl      | List      | A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.
 | contentId     | List      | You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.
 | resolutionPair| List      | Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.
@@ -114,7 +114,7 @@ Analyse and extract the predominant colors from one or several url images.
 | Field               | Type      | Description
 |---------------------|-----------|----------
 | key                 | credential| API key.
-| secret              | String    | API secret.
+| secret              | credential    | API secret.
 | imageUrl            | List      | Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.
 | contentId           | List      | You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.
 | extractOverallColors| Select    | Specify whether the overall image colors should be extracted.
@@ -126,7 +126,7 @@ Analyse and extract the predominant colors from one or several images content id
 | Field               | Type      | Description
 |---------------------|-----------|----------
 | key                 | credential| API key.
-| secret              | String    | API secret.
+| secret              | credential    | API secret.
 | imageUrl            | List      | Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.
 | contentId           | List      | You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.
 | extractOverallColors| Select    | Specify whether the overall image colors should be extracted.
