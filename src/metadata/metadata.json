@@ -19,7 +19,7 @@
 	"blocks": [
 		{
 			"name": "taggingForImageById",
-			"description": "By sending image content id to the getTaggingForImage endpoint you can get a list of many automatically suggested textual tags.",
+			"description": "By sending image content id to the taggingForImageById endpoint you can get a list of many automatically suggested textual tags.",
 			"args": [
 				{
 					"name": "imageUrl",
@@ -79,7 +79,7 @@
 		},
 		{
 			"name": "taggingForImageByUrl",
-			"description": "By sending image url to the getTaggingForImage endpoint you can get a list of many automatically suggested textual tags.",
+			"description": "By sending image url to the taggingForImageByUrl endpoint you can get a list of many automatically suggested textual tags.",
 			"args": [
 				{
 					"name": "imageUrl",

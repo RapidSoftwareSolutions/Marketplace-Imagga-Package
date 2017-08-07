@@ -9,7 +9,7 @@ The Imagga API is a set of image understanding and analysis technologies availab
 2. After creation your account you will see api Secret and api Key 
  
 ## Imagga.taggingForImageById
-By sending image content id to the getTaggingForImage endpoint you can get a list of many automatically suggested textual tags.
+By sending image content id to the taggingForImageById endpoint you can get a list of many automatically suggested textual tags.
 
 | Field             | Type      | Description
 |-------------------|-----------|----------
@@ -22,7 +22,7 @@ By sending image content id to the getTaggingForImage endpoint you can get a lis
 | secret            | credential| API secret.
 
 ## Imagga.taggingForImageByUrl
-By sending image url to the getTaggingForImage endpoint you can get a list of many automatically suggested textual tags.
+By sending image url to the taggingForImageByUrl endpoint you can get a list of many automatically suggested textual tags.
 
 | Field             | Type      | Description
 |-------------------|-----------|----------
