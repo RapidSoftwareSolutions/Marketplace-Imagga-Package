@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/Imagga/croppingImageByUrl', function ($request, $response) {
+$app->post('/api/Imagga/getCropOptionsByUrl', function ($request, $response) {
 
 
     $option = array(

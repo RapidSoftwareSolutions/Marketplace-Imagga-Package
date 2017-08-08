@@ -18,8 +18,8 @@
 	},
 	"blocks": [
 		{
-			"name": "taggingImageById",
-			"description": "By sending image content id to the taggingImageById endpoint you can get a list of many automatically suggested textual tags.",
+			"name": "tagImageById",
+			"description": "By sending image content id to the tagImageById endpoint you can get a list of many automatically suggested textual tags.",
 			"args": [
 				{
 					"name": "contentId",
@@ -82,8 +82,8 @@
 			]
 		},
 		{
-			"name": "taggingImageByUrl",
-			"description": "By sending image url to the taggingImageByUrl endpoint you can get a list of many automatically suggested textual tags.",
+			"name": "tagImageByUrl",
+			"description": "By sending image url to the tagImageByUrl endpoint you can get a list of many automatically suggested textual tags.",
 			"args": [
 				{
 					"name": "imageUrl",
@@ -248,8 +248,8 @@
 			]
 		},
 		{
-			"name": "categorizationsImageByUrl",
-			"description": "By sending image url and categorizerId from getAllCategoriez endpoint to the categorizationsImage endpoint you can get a list of many categorizers.",
+			"name": "getImageCategoriesByUrl",
+			"description": "By sending image url and categorizerId from getAllCategoriez endpoint to the this endpoint you can get a list of many categorizers.",
 			"args": [
 				{
 					"name": "key",
@@ -305,8 +305,8 @@
 			]
 		},
 		{
-			"name": "categorizationsImageById",
-			"description": "By sending image content id and categorizerId from getAllCategoriez endpoint to the categorizationsImage endpoint you can get a list of many categorizers.",
+			"name": "getImageCategoriesById",
+			"description": "By sending image content id and categorizerId from getAllCategoriez endpoint to the this endpoint you can get a list of many categorizers.",
 			"args": [
 				{
 					"name": "key",
@@ -362,7 +362,7 @@
 			]
 		},
 		{
-			"name": "croppingImageByUrl",
+			"name": "getCropOptionsByUrl",
 			"description": "The technology behind this endpoint analyzes the pixel content of each given image url in order to find the most “visually important” areas in the image.",
 			"args": [
 				{
@@ -421,7 +421,7 @@
 		},
 
 		{
-			"name": "croppingImageById",
+			"name": "getCropOptionsById",
 			"description": "The technology behind this endpoint analyzes the pixel content of each given image content id in order to find the most “visually important” areas in the image.",
 			"args": [
 				{
@@ -480,7 +480,7 @@
 		},
 
 		{
-			"name": "analyseColorImageByUrl",
+			"name": "getImageColorExtractionByUrl",
 			"description": "Analyse and extract the predominant colors from one or several url images.",
 			"args": [
 				{
@@ -534,7 +534,7 @@
 			]
 		},
 		{
-			"name": "analyseColorImageById",
+			"name": "getImageColorExtractionById",
 			"description": "Analyse and extract the predominant colors from one or several images content id.",
 			"args": [
 				{

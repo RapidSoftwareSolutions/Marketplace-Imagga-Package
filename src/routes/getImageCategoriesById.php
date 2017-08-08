@@ -1,12 +1,13 @@
 <?php
 
-$app->post('/api/Imagga/categorizationsImageByUrl', function ($request, $response) {
+$app->post('/api/Imagga/getImageCategoriesById', function ($request, $response) {
+
 
     $option = array(
         "key" => "key",
         "secret" => "secret",
         "categorizerId" => "categorizerId",
-        "imageUrl" => "url",
+        "contentId" => "content",
         "language" => "language"
     );
     $arrayType = array();
@@ -14,7 +15,7 @@ $app->post('/api/Imagga/categorizationsImageByUrl', function ($request, $respons
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['key','secret','categorizerId','imageUrl']);
+    $validateRes = $checkRequest->validate($request, ['key','secret','categorizerId','contentId']);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
@@ -26,10 +27,11 @@ $app->post('/api/Imagga/categorizationsImageByUrl', function ($request, $respons
     $url .= $postData['args']['categorizerId']."?";
     unset($postData['args']['categorizerId']);
 
-    if(!empty($postData['args']['imageUrl']))
+    //adding content id in url
+    if(!empty($postData['args']['contentId']))
     {
-        $url .= '&url='.implode('&url=',$postData['args']['imageUrl']);
-        unset($postData['args']['imageUrl']);
+        $url .= '&content='.implode('&content=',$postData['args']['contentId']);
+        unset($postData['args']['contentId']);
     }
     //adding language in url
     if(!empty($postData['args']['language']))
@@ -124,6 +126,7 @@ $app->post('/api/Imagga/categorizationsImageByUrl', function ($request, $respons
         $result['contextWrites']['to']['status_msg'] = 'Something went wrong inside the package.';
     }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
+
 
 
 

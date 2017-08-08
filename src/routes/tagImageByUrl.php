@@ -1,6 +1,6 @@
 <?php
 
-    $app->post('/api/Imagga/taggingForImageByUrl', function ($request, $response) {
+    $app->post('/api/Imagga/tagImageByUrl', function ($request, $response) {
 
 
         $option = array(

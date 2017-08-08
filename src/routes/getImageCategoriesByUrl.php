@@ -1,21 +1,20 @@
 <?php
 
-$app->post('/api/Imagga/analyseColorImageById', function ($request, $response) {
-
+$app->post('/api/Imagga/getImageCategoriesByUrl', function ($request, $response) {
 
     $option = array(
         "key" => "key",
         "secret" => "secret",
-        "contentId" => "content",
-        "extractOverallColors" => "extract_overall_colors",
-        "extractObjectColors" => "extract_object_colors"
+        "categorizerId" => "categorizerId",
+        "imageUrl" => "url",
+        "language" => "language"
     );
     $arrayType = array();
 
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['key','secret','contentId']);
+    $validateRes = $checkRequest->validate($request, ['key','secret','categorizerId','imageUrl']);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
@@ -23,30 +22,21 @@ $app->post('/api/Imagga/analyseColorImageById', function ($request, $response) {
     }
 
     //form full url
-    $url = "https://api.imagga.com/v1/colors?";
+    $url = "https://api.imagga.com/v1/categorizations/";
+    $url .= $postData['args']['categorizerId']."?";
+    unset($postData['args']['categorizerId']);
 
-    //adding content id in url
-    if(!empty($postData['args']['contentId']))
+    if(!empty($postData['args']['imageUrl']))
     {
-        $url .= '&content='.implode('&content=',$postData['args']['contentId']);
-        unset($postData['args']['contentId']);
+        $url .= '&url='.implode('&url=',$postData['args']['imageUrl']);
+        unset($postData['args']['imageUrl']);
     }
-    //change alias extractOverallColors
-    if((!empty($postData['args']['extractOverallColors'])) && $postData['args']['extractOverallColors'] == 'On')
+    //adding language in url
+    if(!empty($postData['args']['language']))
     {
-        $postData['args']['extractOverallColors'] = 1;
-    } else {
-        $postData['args']['extractOverallColors'] = 0;
+        $url .= '&language='.implode('&language=',$postData['args']['language']);
+        unset($postData['args']['language']);
     }
-
-    //change alias extractOverallColors
-    if((!empty($postData['args']['extractObjectColors'])) && $postData['args']['extractObjectColors'] == 'On')
-    {
-        $postData['args']['extractObjectColors'] = 1;
-    } else {
-        $postData['args']['extractObjectColors'] = 0;
-    }
-
 
     //Change alias and formatted array
     foreach($option as $alias => $value)

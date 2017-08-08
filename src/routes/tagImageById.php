@@ -1,33 +1,30 @@
 <?php
 
-$app->post('/api/Imagga/categorizationsImageById', function ($request, $response) {
+$app->post('/api/Imagga/tagImageById', function ($request, $response) {
 
 
     $option = array(
         "key" => "key",
         "secret" => "secret",
-        "categorizerId" => "categorizerId",
         "contentId" => "content",
-        "language" => "language"
+        "language" => "language",
+        "showTagInfo" => "verbose"
     );
-    $arrayType = array();
+    $arrayType = array('contentId');
 
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['key','secret','categorizerId','contentId']);
+    $validateRes = $checkRequest->validate($request, ['key','secret','contentId']);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
         $postData = $validateRes;
     }
 
-    //form full url
-    $url = "https://api.imagga.com/v1/categorizations/";
-    $url .= $postData['args']['categorizerId']."?";
-    unset($postData['args']['categorizerId']);
 
-    //adding content id in url
+    $url = "https://api.imagga.com/v1/tagging?";
+  //  adding content id in url
     if(!empty($postData['args']['contentId']))
     {
         $url .= '&content='.implode('&content=',$postData['args']['contentId']);
@@ -39,7 +36,6 @@ $app->post('/api/Imagga/categorizationsImageById', function ($request, $response
         $url .= '&language='.implode('&language=',$postData['args']['language']);
         unset($postData['args']['language']);
     }
-
     //Change alias and formatted array
     foreach($option as $alias => $value)
     {
@@ -58,6 +54,14 @@ $app->post('/api/Imagga/categorizationsImageById', function ($request, $response
 
 
 
+
+    //change alias verbose
+    if((!empty($queryParam['verbose'])) && $queryParam['verbose'] == 'On')
+    {
+        $queryParam['verbose'] = 1;
+    }
+
+
     $userName = $queryParam['key'];
     unset($queryParam['key']);
     $pass = $queryParam['secret'];
@@ -70,34 +74,21 @@ $app->post('/api/Imagga/categorizationsImageById', function ($request, $response
     }
 
 
+
     try {
 
 
 
         $resp =  $client->request('GET', $url ,['auth' => [$userName,$pass] ] );
 
-
-
         if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
-
-            $dataBody = $resp->getBody()->getContents();
-            $check = json_decode($dataBody);
-            if(!empty($check->unsuccessful))
-            {
-                $result['callback'] = 'error';
-                $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-                $result['contextWrites']['to']['status_msg'] = $dataBody;
-            } else {
-                $result['callback'] = 'success';
-                $result['contextWrites']['to'] = array('result' =>$dataBody );
-            }
-
-
+            $result['callback'] = 'success';
+            $result['contextWrites']['to'] = array('result' => $resp->getBody()->getContents() );
 
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-            $result['contextWrites']['to']['status_msg'] = $resp->getBody()->getContents();
+            $result['contextWrites']['to']['status_msg'] = json_decode($resp->getBody()->getContents());
         }
     } catch (\GuzzleHttp\Exception\ClientException $exception) {
         $responseBody = $exception->getResponse()->getBody()->getContents();
@@ -129,5 +120,7 @@ $app->post('/api/Imagga/categorizationsImageById', function ($request, $response
 
 
 
+
+    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
 });

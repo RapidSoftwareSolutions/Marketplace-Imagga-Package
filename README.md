@@ -8,8 +8,8 @@ The Imagga API is a set of image understanding and analysis technologies availab
 1. Register on [imagga.com](https://imagga.com).
 2. After creation your account you will see api Secret and api Key. 
  
-## Imagga.taggingImageById
-By sending image content id to the taggingImageById endpoint you can get a list of many automatically suggested textual tags.
+## Imagga.tagImageById
+By sending image content id to the tagImageById endpoint you can get a list of many automatically suggested textual tags.
 
 | Field             | Type       | Description
 |-------------------|------------|----------
@@ -20,8 +20,8 @@ By sending image content id to the taggingImageById endpoint you can get a list 
 | key               | credentials| API key.
 | secret            | credentials| API secret.
 
-## Imagga.taggingImageByUrl
-By sending image url to the taggingImageByUrl endpoint you can get a list of many automatically suggested textual tags.
+## Imagga.tagImageByUrl
+By sending image url to the tagImageByUrl endpoint you can get a list of many automatically suggested textual tags.
 
 | Field             | Type       | Description
 |-------------------|------------|----------
@@ -58,8 +58,8 @@ Using the uploadImage endpoint you can upload a file (image or video) for proces
 | secret   | credentials| API secret.
 | imageFile| File       | Uploaded image.
 
-## Imagga.categorizationsImageByUrl
-By sending image url and categorizerId from getAllCategoriez endpoint to the categorizationsImage endpoint you can get a list of many categorizers.
+## Imagga.getImageCategoriesByUrl
+By sending image url and categorizerId from getAllCategoriez endpoint to this endpoint you can get a list of many categorizers.
 
 | Field        | Type       | Description
 |--------------|------------|----------
@@ -69,8 +69,8 @@ By sending image url and categorizerId from getAllCategoriez endpoint to the cat
 | imageUrl     | List       | URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.
 | language     | List       | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.Example - en.
 
-## Imagga.categorizationsImageById
-By sending image content id and categorizerId from getAllCategoriez endpoint to the categorizationsImage endpoint you can get a list of many categorizers.
+## Imagga.getImageCategoriesById
+By sending image content id and categorizerId from getAllCategoriez endpoint to this endpoint you can get a list of many categorizers.
 
 | Field        | Type       | Description
 |--------------|------------|----------
@@ -80,7 +80,7 @@ By sending image content id and categorizerId from getAllCategoriez endpoint to 
 | contentId    | List       | You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.Example - en.
 | language     | List       | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.
 
-## Imagga.croppingImageByUrl
+## Imagga.getCropOptionsByUrl
 The technology behind this endpoint analyzes the pixel content of each given image url in order to find the most “visually important” areas in the image.
 
 | Field         | Type       | Description
@@ -91,7 +91,7 @@ The technology behind this endpoint analyzes the pixel content of each given ima
 | resolutionPair| List       | Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.
 | scaling       | Select     | Whether the cropping coordinates should exactly match the requested resolutions or just preserve their aspect ratios and let you resize the cropped image later.
 
-## Imagga.croppingImageById
+## Imagga.getCropOptionsById
 The technology behind this endpoint analyzes the pixel content of each given image content id in order to find the most “visually important” areas in the image.
 
 | Field         | Type       | Description
@@ -102,7 +102,7 @@ The technology behind this endpoint analyzes the pixel content of each given ima
 | resolutionPair| List       | Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.
 | scaling       | Select     | Whether the cropping coordinates should exactly match the requested resolutions or just preserve their aspect ratios and let you resize the cropped image later.
 
-## Imagga.analyseColorImageByUrl
+## Imagga.getImageColorExtractionByUrl
 Analyse and extract the predominant colors from one or several url images.
 
 | Field               | Type       | Description
@@ -113,7 +113,7 @@ Analyse and extract the predominant colors from one or several url images.
 | extractOverallColors| Select     | Specify whether the overall image colors should be extracted.
 | extractObjectColors | Select     | Specify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.
 
-## Imagga.analyseColorImageById
+## Imagga.getImageColorExtractionById
 Analyse and extract the predominant colors from one or several images content id.
 
 | Field               | Type       | Description
