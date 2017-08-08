@@ -82,32 +82,46 @@
 
         try {
 
-            $api_credentials = array(
-                'key' => $userName,
-                'secret' => $pass
-            );
-
-            $ch = curl_init();
-
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            curl_setopt($ch, CURLOPT_HEADER, FALSE);
-            curl_setopt($ch, CURLOPT_USERPWD, $api_credentials['key'].':'.$api_credentials['secret']);
-
-            $curl = curl_exec($ch);
-            curl_close($ch);
-
-            $json_response = $curl;
-            $result['callback'] = 'success';
-            $result['contextWrites']['to'] = $json_response;
 
 
-        } catch(\GuzzleHttp\Exception\ClientException $exception) {
+            $resp =  $client->request('GET', $url ,['auth' => [$userName,$pass] ] );
+
+            if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
+                $result['callback'] = 'success';
+                $result['contextWrites']['to'] = array('result' => $resp->getBody()->getContents() );
+
+            } else {
+                $result['callback'] = 'error';
+                $result['contextWrites']['to']['status_code'] = 'API_ERROR';
+                $result['contextWrites']['to']['status_msg'] = json_decode($resp->getBody()->getContents());
+            }
+        } catch (\GuzzleHttp\Exception\ClientException $exception) {
+            $responseBody = $exception->getResponse()->getBody()->getContents();
+            if(empty(json_decode($responseBody))) {
+                $out = $responseBody;
+            } else {
+                $out = json_decode($responseBody);
+            }
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-            $result['contextWrites']['to']['status_msg'] = $exception->getResponse()->getBody()->getContents();
+            $result['contextWrites']['to']['status_msg'] = $out;
+        } catch (GuzzleHttp\Exception\ServerException $exception) {
+            $responseBody = $exception->getResponse()->getBody()->getContents();
+            if(empty(json_decode($responseBody))) {
+                $out = $responseBody;
+            } else {
+                $out = json_decode($responseBody);
+            }
+            $result['callback'] = 'error';
+            $result['contextWrites']['to']['status_code'] = 'API_ERROR';
+            $result['contextWrites']['to']['status_msg'] = $out;
+        } catch (GuzzleHttp\Exception\ConnectException $exception) {
+            $responseBody = $exception->getResponse()->getBody(true);
+            $result['callback'] = 'error';
+            $result['contextWrites']['to']['status_code'] = 'INTERNAL_PACKAGE_ERROR';
+            $result['contextWrites']['to']['status_msg'] = 'Something went wrong inside the package.';
         }
-
+        return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
 
 

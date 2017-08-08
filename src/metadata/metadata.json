@@ -25,13 +25,23 @@
 					"name": "imageUrl",
 					"type": "List",
 					"info": "Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "ImageUrl",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.",
-					"required": true
+					"required": true,
+					"structure": {
+						"name": "ContentId",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "showTagInformation",
@@ -44,7 +54,12 @@
 					"name": "language",
 					"type": "List",
 					"info": "See all available languages in README.You can apply this parameter multiple times.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "language",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "limit",
@@ -54,13 +69,13 @@
 				},
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				}
@@ -85,13 +100,24 @@
 					"name": "imageUrl",
 					"type": "List",
 					"info": "Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.",
-					"required": true
+					"required": true,
+					"structure": {
+						"name": "ImageUrl",
+						"type": "String",
+						"info": ""
+					}
+
 				},
 				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "contentId",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "showTagInformation",
@@ -104,7 +130,12 @@
 					"name": "language",
 					"type": "List",
 					"info": "See all available languages in README.You can apply this parameter multiple times.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "language",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "limit",
@@ -114,13 +145,13 @@
 				},
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				}
@@ -143,13 +174,13 @@
 			"args": [
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				}
@@ -172,13 +203,13 @@
 			"args": [
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				},
@@ -208,13 +239,13 @@
 			"args": [
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				},
@@ -244,13 +275,13 @@
 			"args": [
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				},
@@ -264,19 +295,34 @@
 					"name": "imageUrl",
 					"type": "List",
 					"info": "URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.",
-					"required": true
+					"required": true,
+					"structure": {
+						"name": "ImageUrl",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "contentId",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "language",
 					"type": "List",
 					"info": "See all available languages in README.You can apply this parameter multiple times.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "language",
+						"type": "String",
+						"info": ""
+					}
 				}
 
 
@@ -297,13 +343,13 @@
 			"args": [
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				},
@@ -317,19 +363,34 @@
 					"name": "imageUrl",
 					"type": "List",
 					"info": "URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "ImageUrl",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.",
-					"required": true
+					"required": true,
+					"structure": {
+						"name": "contentId",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "language",
 					"type": "List",
 					"info": "See all available languages in README.You can apply this parameter multiple times.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "language",
+						"type": "String",
+						"info": ""
+					}
 				}
 
 
@@ -350,13 +411,13 @@
 			"args": [
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				},
@@ -364,19 +425,34 @@
 					"name": "imageUrl",
 					"type": "List",
 					"info": "A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.",
-					"required": true
+					"required": true,
+					"structure": {
+						"name": "ImageUrl",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "contentId",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "resolutionPair",
 					"type": "List",
 					"info": "Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "resolutionPair",
+						"type": "String",
+						"info": "Example - 100x200."
+					}
 				},
 				{
 					"name": "scaling",
@@ -405,13 +481,13 @@
 			"args": [
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				},
@@ -419,19 +495,35 @@
 					"name": "imageUrl",
 					"type": "List",
 					"info": "A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "imageUrl",
+						"type": "String",
+						"info": ""
+					}
+
 				},
 				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.",
-					"required": true
+					"required": true,
+					"structure": {
+						"name": "contentId",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "resolutionPair",
 					"type": "List",
 					"info": "Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "resolutionPair",
+						"type": "String",
+						"info": "Example - 100x200."
+					}
 				},
 				{
 					"name": "scaling",
@@ -460,13 +552,13 @@
 			"args": [
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				},
@@ -474,13 +566,23 @@
 					"name": "imageUrl",
 					"type": "List",
 					"info": "Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.",
-					"required": true
+					"required": true,
+					"structure": {
+						"name": "imageUrl",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "contentId",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "extractOverallColors",
@@ -515,13 +617,13 @@
 			"args": [
 				{
 					"name": "key",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API key.",
 					"required": true
 				},
 				{
 					"name": "secret",
-					"type": "credential",
+					"type": "credentials",
 					"info": "API secret.",
 					"required": true
 				},
@@ -529,13 +631,23 @@
 					"name": "imageUrl",
 					"type": "List",
 					"info": "Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.",
-					"required": false
+					"required": false,
+					"structure": {
+						"name": "imageUrl",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.",
-					"required": true
+					"required": true,
+					"structure": {
+						"name": "contentId",
+						"type": "String",
+						"info": ""
+					}
 				},
 				{
 					"name": "extractOverallColors",

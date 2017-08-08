@@ -29,7 +29,7 @@ By sending image url to the taggingForImageByUrl endpoint you can get a list of 
 | imageUrl          | List      | Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.
 | contentId         | List      | You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.
 | showTagInformation| Select    | Whether to return some additional information about each of the tags or not.
-| language          | list      | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.
+| language          | List      | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.
 | limit             | Number    | Limits the number of tags in the result to the number you set.
 | key               | credential| API key.
 | secret            | credential| API secret.
