@@ -18,8 +18,8 @@ By sending image content id to the taggingForImageById endpoint you can get a li
 | showTagInformation| Select    | Whether to return some additional information about each of the tags or not.
 | language          | List      | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.
 | limit             | Number    | Limits the number of tags in the result to the number you set.
-| key               | credential| API key.
-| secret            | credential| API secret.
+| key               | credentials| API key.
+| secret            | credentials| API secret.
 
 ## Imagga.taggingForImageByUrl
 By sending image url to the taggingForImageByUrl endpoint you can get a list of many automatically suggested textual tags.
@@ -31,24 +31,24 @@ By sending image url to the taggingForImageByUrl endpoint you can get a list of 
 | showTagInformation| Select    | Whether to return some additional information about each of the tags or not.
 | language          | List      | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.
 | limit             | Number    | Limits the number of tags in the result to the number you set.
-| key               | credential| API key.
-| secret            | credential| API secret.
+| key               | credentials| API key.
+| secret            | credentials| API secret.
 
 ## Imagga.getAllCategorizers
 Get a list of all available categorizers for you.
 
 | Field | Type      | Description
 |-------|-----------|----------
-| key   | credential| API key.
-| secret| credential| API secret.
+| key   | credentials| API key.
+| secret| credentials| API secret.
 
 ## Imagga.deleteImage
 Delete an uploaded file.
 
 | Field    | Type      | Description
 |----------|-----------|----------
-| key      | credential| API key.
-| secret   | credential| API secret.
+| key      | credentials| API key.
+| secret   | credentials| API secret.
 | contentId| String    | Image content id. Image content id.Obtained with uploadImage endpoits.
 
 ## Imagga.uploadeImage
@@ -56,8 +56,8 @@ Using the uploadeImage endpoint you can upload a file (image or video) for proce
 
 | Field   | Type      | Description
 |---------|-----------|----------
-| key     | credential| API key.
-| secret  | credential| API secret.
+| key     | credentials| API key.
+| secret  | credentials| API secret.
 | imageUrl| File      | Uploaded file.
 
 ## Imagga.categorizationsForImageByUrl
@@ -65,8 +65,8 @@ By sending image url and categorizerId from getAllCategoriez endpoint to the cat
 
 | Field        | Type      | Description
 |--------------|-----------|----------
-| key          | credential| API key.
-| secret       | credential| API secret.
+| key          | credentials| API key.
+| secret       | credentials| API secret.
 | categorizerId| String    | The categorizer id.
 | imageUrl     | List      | URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.
 | contentId    | List      | You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.
@@ -77,8 +77,8 @@ By sending image url and categorizerId from getAllCategoriez endpoint to the cat
 
 | Field        | Type      | Description
 |--------------|-----------|----------
-| key          | credential| API key.
-| secret       | credential| API secret.
+| key          | credentials| API key.
+| secret       | credentials| API secret.
 | categorizerId| String    | The categorizer id.
 | imageUrl     | List      | URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.
 | contentId    | List      | You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.
@@ -89,8 +89,8 @@ The technology behind this endpoint analyzes the pixel content of each given ima
 
 | Field         | Type      | Description
 |---------------|-----------|----------
-| key           | credential| API key.
-| secret        | credential    | API secret.
+| key           | credentials| API key.
+| secret        | credentials    | API secret.
 | imageUrl      | List      | A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.
 | contentId     | List      | You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.
 | resolutionPair| List      | Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.
@@ -101,8 +101,8 @@ The technology behind this endpoint analyzes the pixel content of each given ima
 
 | Field         | Type      | Description
 |---------------|-----------|----------
-| key           | credential| API key.
-| secret        | credential    | API secret.
+| key           | credentials| API key.
+| secret        | credentials    | API secret.
 | imageUrl      | List      | A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.
 | contentId     | List      | You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.
 | resolutionPair| List      | Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.
@@ -113,8 +113,8 @@ Analyse and extract the predominant colors from one or several url images.
 
 | Field               | Type      | Description
 |---------------------|-----------|----------
-| key                 | credential| API key.
-| secret              | credential    | API secret.
+| key                 | credentials| API key.
+| secret              | credentials    | API secret.
 | imageUrl            | List      | Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.
 | contentId           | List      | You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.
 | extractOverallColors| Select    | Specify whether the overall image colors should be extracted.
@@ -125,8 +125,8 @@ Analyse and extract the predominant colors from one or several images content id
 
 | Field               | Type      | Description
 |---------------------|-----------|----------
-| key                 | credential| API key.
-| secret              | credential    | API secret.
+| key                 | credentials| API key.
+| secret              | credentials    | API secret.
 | imageUrl            | List      | Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.
 | contentId           | List      | You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.
 | extractOverallColors| Select    | Specify whether the overall image colors should be extracted.
