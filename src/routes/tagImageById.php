@@ -8,7 +8,8 @@ $app->post('/api/Imagga/tagImageById', function ($request, $response) {
         "secret" => "secret",
         "contentId" => "content",
         "language" => "language",
-        "showTagInfo" => "verbose"
+        "showTagInfo" => "verbose",
+        "limit" => "limit"
     );
     $arrayType = array('contentId');
 

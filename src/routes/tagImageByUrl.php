@@ -8,7 +8,8 @@
             "secret" => "secret",
             "imageUrl" => "url",
             "language" => "language",
-            "showTagInfo" => "verbose"
+            "showTagInfo" => "verbose",
+            "limit" => 'limit'
         );
         $arrayType = array();
 
