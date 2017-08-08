@@ -3,7 +3,7 @@
 	"tagline": "Imagga API",
 	"description": "The Imagga API is a set of image understanding and analysis technologies available as a web service that allows you to automate the process of analyzing, organizing and searching through large collections of unstructured images.",
 	"image": "https://logo.clearbit.com/imagga.com",
-	"repo": "",
+	"repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Imagga-Package/tree/master/src",
 	"keywords": [
 		"API",
 		"Image",
