@@ -3,7 +3,7 @@
 	"tagline": "Imagga API",
 	"description": "The Imagga API is a set of image understanding and analysis technologies available as a web service that allows you to automate the process of analyzing, organizing and searching through large collections of unstructured images.",
 	"image": "https://logo.clearbit.com/imagga.com",
-	"repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Imagga-Package/tree/master/src",
+	"repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Imagga-Package",
 	"keywords": [
 		"API",
 		"Image",
@@ -18,8 +18,8 @@
 	},
 	"blocks": [
 		{
-			"name": "taggingForImageById",
-			"description": "By sending image content id to the taggingForImageById endpoint you can get a list of many automatically suggested textual tags.",
+			"name": "taggingImageById",
+			"description": "By sending image content id to the taggingImageById endpoint you can get a list of many automatically suggested textual tags.",
 			"args": [
 				{
 					"name": "imageUrl",
@@ -27,9 +27,9 @@
 					"info": "Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.",
 					"required": false,
 					"structure": {
-						"name": "ImageUrl",
+						"name": "imageUrl",
 						"type": "String",
-						"info": ""
+						"info": "Single image url."
 					}
 				},
 				{
@@ -38,9 +38,9 @@
 					"info": "You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.",
 					"required": true,
 					"structure": {
-						"name": "ContentId",
+						"name": "contentId",
 						"type": "String",
-						"info": ""
+						"info": "Single content id."
 					}
 				},
 				{
@@ -53,12 +53,12 @@
 				{
 					"name": "language",
 					"type": "List",
-					"info": "See all available languages in README.You can apply this parameter multiple times.",
+					"info": "See all available languages in README.You can apply this parameter multiple times.Example - en.",
 					"required": false,
 					"structure": {
 						"name": "language",
 						"type": "String",
-						"info": ""
+						"info": "Language code."
 					}
 				},
 				{
@@ -93,8 +93,8 @@
 			]
 		},
 		{
-			"name": "taggingForImageByUrl",
-			"description": "By sending image url to the taggingForImageByUrl endpoint you can get a list of many automatically suggested textual tags.",
+			"name": "taggingImageByUrl",
+			"description": "By sending image url to the taggingImageByUrl endpoint you can get a list of many automatically suggested textual tags.",
 			"args": [
 				{
 					"name": "imageUrl",
@@ -102,9 +102,9 @@
 					"info": "Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.",
 					"required": true,
 					"structure": {
-						"name": "ImageUrl",
+						"name": "imageUrl",
 						"type": "String",
-						"info": ""
+						"info": "Single url."
 					}
 
 				},
@@ -116,7 +116,7 @@
 					"structure": {
 						"name": "contentId",
 						"type": "String",
-						"info": ""
+						"info": "Single content id."
 					}
 				},
 				{
@@ -129,12 +129,12 @@
 				{
 					"name": "language",
 					"type": "List",
-					"info": "See all available languages in README.You can apply this parameter multiple times.",
+					"info": "See all available languages in README.You can apply this parameter multiple times.Example - en.",
 					"required": false,
 					"structure": {
 						"name": "language",
 						"type": "String",
-						"info": ""
+						"info": "Language code."
 					}
 				},
 				{
@@ -216,7 +216,7 @@
 				{
 					"name": "contentId",
 					"type": "String",
-					"info": "Image content id. Image content id.Obtained with uploadImage endpoits.",
+					"info": "Image content id.Obtained with uploadeImage endpoits.",
 					"required": true
 				}
 
@@ -250,9 +250,9 @@
 					"required": true
 				},
 				{
-					"name": "imageUrl",
+					"name": "imageFile",
 					"type": "File",
-					"info": "Uploaded file.",
+					"info": "Uploaded image.",
 					"required": true
 				}
 
@@ -270,8 +270,8 @@
 			]
 		},
 		{
-			"name": "categorizationsForImageByUrl",
-			"description": "By sending image url and categorizerId from getAllCategoriez endpoint to the categorizationsForImage endpoint you can get a list of many categorizers.",
+			"name": "categorizationsImageByUrl",
+			"description": "By sending image url and categorizerId from getAllCategoriez endpoint to the categorizationsImage endpoint you can get a list of many categorizers.",
 			"args": [
 				{
 					"name": "key",
@@ -297,9 +297,9 @@
 					"info": "URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.",
 					"required": true,
 					"structure": {
-						"name": "ImageUrl",
+						"name": "imageUrl",
 						"type": "String",
-						"info": ""
+						"info": "Single image."
 					}
 				},
 				{
@@ -310,18 +310,18 @@
 					"structure": {
 						"name": "contentId",
 						"type": "String",
-						"info": ""
+						"info": "Single content id."
 					}
 				},
 				{
 					"name": "language",
 					"type": "List",
-					"info": "See all available languages in README.You can apply this parameter multiple times.",
+					"info": "See all available languages in README.You can apply this parameter multiple times.Example - en.",
 					"required": false,
 					"structure": {
 						"name": "language",
 						"type": "String",
-						"info": ""
+						"info": "Language code."
 					}
 				}
 
@@ -338,8 +338,8 @@
 			]
 		},
 		{
-			"name": "categorizationsForImageById",
-			"description": "By sending image url and categorizerId from getAllCategoriez endpoint to the categorizationsForImage endpoint you can get a list of many categorizers.",
+			"name": "categorizationsImageById",
+			"description": "By sending image url and categorizerId from getAllCategoriez endpoint to the categorizationsImage endpoint you can get a list of many categorizers.",
 			"args": [
 				{
 					"name": "key",
@@ -367,18 +367,18 @@
 					"structure": {
 						"name": "ImageUrl",
 						"type": "String",
-						"info": ""
+						"info": "Single image url."
 					}
 				},
 				{
 					"name": "contentId",
 					"type": "List",
-					"info": "You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.",
+					"info": "You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.Example - en.",
 					"required": true,
 					"structure": {
 						"name": "contentId",
 						"type": "String",
-						"info": ""
+						"info": "Single content id."
 					}
 				},
 				{
@@ -389,7 +389,7 @@
 					"structure": {
 						"name": "language",
 						"type": "String",
-						"info": ""
+						"info": "Language code."
 					}
 				}
 
@@ -406,7 +406,7 @@
 			]
 		},
 		{
-			"name": "croppingsForImageByUrl",
+			"name": "croppingsImageByUrl",
 			"description": "The technology behind this endpoint analyzes the pixel content of each given image url in order to find the most “visually important” areas in the image.",
 			"args": [
 				{
@@ -429,7 +429,7 @@
 					"structure": {
 						"name": "ImageUrl",
 						"type": "String",
-						"info": ""
+						"info": "Single image url."
 					}
 				},
 				{
@@ -440,7 +440,7 @@
 					"structure": {
 						"name": "contentId",
 						"type": "String",
-						"info": ""
+						"info": "Single content id."
 					}
 				},
 				{
@@ -476,7 +476,7 @@
 		},
 
 		{
-			"name": "croppingsForImageById",
+			"name": "croppingsImageById",
 			"description": "The technology behind this endpoint analyzes the pixel content of each given image content id in order to find the most “visually important” areas in the image.",
 			"args": [
 				{
@@ -499,7 +499,7 @@
 					"structure": {
 						"name": "imageUrl",
 						"type": "String",
-						"info": ""
+						"info": "Single image url."
 					}
 
 				},
@@ -511,7 +511,7 @@
 					"structure": {
 						"name": "contentId",
 						"type": "String",
-						"info": ""
+						"info": "Single content id."
 					}
 				},
 				{
@@ -547,7 +547,7 @@
 		},
 
 		{
-			"name": "analyseColorForImageByUrl",
+			"name": "analyseColorImageByUrl",
 			"description": "Analyse and extract the predominant colors from one or several url images.",
 			"args": [
 				{
@@ -570,7 +570,7 @@
 					"structure": {
 						"name": "imageUrl",
 						"type": "String",
-						"info": ""
+						"info": "Single image url."
 					}
 				},
 				{
@@ -581,7 +581,7 @@
 					"structure": {
 						"name": "contentId",
 						"type": "String",
-						"info": ""
+						"info": "Single content id."
 					}
 				},
 				{
@@ -612,7 +612,7 @@
 			]
 		},
 		{
-			"name": "analyseColorForImageById",
+			"name": "analyseColorImageById",
 			"description": "Analyse and extract the predominant colors from one or several images content id.",
 			"args": [
 				{
@@ -635,7 +635,7 @@
 					"structure": {
 						"name": "imageUrl",
 						"type": "String",
-						"info": ""
+						"info": "Single image url."
 					}
 				},
 				{
@@ -646,7 +646,7 @@
 					"structure": {
 						"name": "contentId",
 						"type": "String",
-						"info": ""
+						"info": "Single content id."
 					}
 				},
 				{

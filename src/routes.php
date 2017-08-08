@@ -1,16 +1,16 @@
 <?php
 $routes = [
     'metadata',
-    'taggingForImageByUrl',
-    'taggingForImageById',
-    'uploadImage',
+    'taggingImageByUrl',
+    'taggingImageById',
+    'uploadeImage',
     'getAllCategorizers',
-    'categorizationsForImageByUrl',
-    'categorizationsForImageById',
-    'croppingsForImageByUrl',
-    'croppingsForImageById',
-    'analyseColorForImageById',
-    'analyseColorForImageByUrl',
+    'categorizationsImageByUrl',
+    'categorizationsImageById',
+    'croppingsImageByUrl',
+    'croppingsImageById',
+    'analyseColorImageById',
+    'analyseColorImageByUrl',
     'deleteImage'
 
 ];

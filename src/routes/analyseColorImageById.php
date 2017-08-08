@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/Imagga/analyseColorForImageById', function ($request, $response) {
+$app->post('/api/Imagga/analyseColorImageById', function ($request, $response) {
     ini_set('display_errors',1);
 
     $option = array(

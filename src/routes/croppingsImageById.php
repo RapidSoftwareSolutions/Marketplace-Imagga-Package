@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/Imagga/croppingsForImageById', function ($request, $response) {
+$app->post('/api/Imagga/croppingsImageById', function ($request, $response) {
     ini_set('display_errors',1);
 
     $option = array(

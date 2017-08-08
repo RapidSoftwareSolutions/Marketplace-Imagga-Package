@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/Imagga/analyseColorForImageByUrl', function ($request, $response) {
+$app->post('/api/Imagga/taggingImageById', function ($request, $response) {
     ini_set('display_errors',1);
 
     $option = array(
@@ -8,53 +8,41 @@ $app->post('/api/Imagga/analyseColorForImageByUrl', function ($request, $respons
         "secret" => "secret",
         "imageUrl" => "url",
         "contentId" => "content",
-        "extractOverallColors" => "extract_overall_colors",
-        "extractObjectColors" => "extract_object_colors"
+        "language" => "language",
+        "showTagInfo" => "verbose"
     );
-    $arrayType = array();
+    $arrayType = array('contentId');
 
 
     $settings = $this->settings;
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['key','secret','imageUrl']);
+    $validateRes = $checkRequest->validate($request, ['key','secret','contentId']);
     if(!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback']=='error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
         $postData = $validateRes;
     }
 
-    //form full url
-    $url = "https://api.imagga.com/v1/colors?";
 
-
+    $url = "https://api.imagga.com/v1/tagging?";
+    //adding images in url
     if(!empty($postData['args']['imageUrl']))
     {
         $url .= '&url='.implode('&url=',$postData['args']['imageUrl']);
         unset($postData['args']['imageUrl']);
     }
-    //adding content id in url
+  //  adding content id in url
     if(!empty($postData['args']['contentId']))
     {
         $url .= '&content='.implode('&content=',$postData['args']['contentId']);
         unset($postData['args']['contentId']);
     }
-    //change alias extractOverallColors
-    if((!empty($postData['args']['extractOverallColors'])) && $postData['args']['extractOverallColors'] == 'On')
+    //adding language in url
+    if(!empty($postData['args']['language']))
     {
-        $postData['args']['extractOverallColors'] = 1;
-    } else {
-        $postData['args']['extractOverallColors'] = 0;
+        $url .= '&language='.implode('&language=',$postData['args']['language']);
+        unset($postData['args']['language']);
     }
-
-    //change alias extractOverallColors
-    if((!empty($postData['args']['extractObjectColors'])) && $postData['args']['extractObjectColors'] == 'On')
-    {
-        $postData['args']['extractObjectColors'] = 1;
-    } else {
-        $postData['args']['extractObjectColors'] = 0;
-    }
-
-
     //Change alias and formatted array
     foreach($option as $alias => $value)
     {
@@ -73,6 +61,14 @@ $app->post('/api/Imagga/analyseColorForImageByUrl', function ($request, $respons
 
 
 
+
+    //change alias verbose
+    if((!empty($queryParam['verbose'])) && $queryParam['verbose'] == 'On')
+    {
+        $queryParam['verbose'] = 1;
+    }
+
+
     $userName = $queryParam['key'];
     unset($queryParam['key']);
     $pass = $queryParam['secret'];
@@ -85,34 +81,21 @@ $app->post('/api/Imagga/analyseColorForImageByUrl', function ($request, $respons
     }
 
 
+
     try {
 
 
 
         $resp =  $client->request('GET', $url ,['auth' => [$userName,$pass] ] );
 
-
-
         if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
-
-            $dataBody = $resp->getBody()->getContents();
-            $check = json_decode($dataBody);
-            if(!empty($check->unsuccessful))
-            {
-                $result['callback'] = 'error';
-                $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-                $result['contextWrites']['to']['status_msg'] = $dataBody;
-            } else {
-                $result['callback'] = 'success';
-                $result['contextWrites']['to'] = array('result' =>$dataBody );
-            }
-
-
+            $result['callback'] = 'success';
+            $result['contextWrites']['to'] = array('result' => $resp->getBody()->getContents() );
 
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-            $result['contextWrites']['to']['status_msg'] = $resp->getBody()->getContents();
+            $result['contextWrites']['to']['status_msg'] = json_decode($resp->getBody()->getContents());
         }
     } catch (\GuzzleHttp\Exception\ClientException $exception) {
         $responseBody = $exception->getResponse()->getBody()->getContents();
@@ -143,5 +126,8 @@ $app->post('/api/Imagga/analyseColorForImageByUrl', function ($request, $respons
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
 
+
+
+    return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
 });

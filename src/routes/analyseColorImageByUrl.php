@@ -1,12 +1,15 @@
 <?php
 
-$app->post('/api/Imagga/uploadImage', function ($request, $response) {
+$app->post('/api/Imagga/analyseColorImageByUrl', function ($request, $response) {
     ini_set('display_errors',1);
 
     $option = array(
         "key" => "key",
         "secret" => "secret",
-        "imageUrl" => "image"
+        "imageUrl" => "url",
+        "contentId" => "content",
+        "extractOverallColors" => "extract_overall_colors",
+        "extractObjectColors" => "extract_object_colors"
     );
     $arrayType = array();
 
@@ -20,8 +23,38 @@ $app->post('/api/Imagga/uploadImage', function ($request, $response) {
         $postData = $validateRes;
     }
 
+    //form full url
+    $url = "https://api.imagga.com/v1/colors?";
 
-    $url = "https://api.imagga.com/v1/content";
+
+    if(!empty($postData['args']['imageUrl']))
+    {
+        $url .= '&url='.implode('&url=',$postData['args']['imageUrl']);
+        unset($postData['args']['imageUrl']);
+    }
+    //adding content id in url
+    if(!empty($postData['args']['contentId']))
+    {
+        $url .= '&content='.implode('&content=',$postData['args']['contentId']);
+        unset($postData['args']['contentId']);
+    }
+    //change alias extractOverallColors
+    if((!empty($postData['args']['extractOverallColors'])) && $postData['args']['extractOverallColors'] == 'On')
+    {
+        $postData['args']['extractOverallColors'] = 1;
+    } else {
+        $postData['args']['extractOverallColors'] = 0;
+    }
+
+    //change alias extractOverallColors
+    if((!empty($postData['args']['extractObjectColors'])) && $postData['args']['extractObjectColors'] == 'On')
+    {
+        $postData['args']['extractObjectColors'] = 1;
+    } else {
+        $postData['args']['extractObjectColors'] = 0;
+    }
+
+
     //Change alias and formatted array
     foreach($option as $alias => $value)
     {
@@ -46,52 +79,42 @@ $app->post('/api/Imagga/uploadImage', function ($request, $response) {
     unset($queryParam['secret']);
     $client = $this->httpClient;
 
+    foreach($queryParam as $key => $value)
+    {
+        $url .= '&'.$key.'='.$value;
+    }
 
 
     try {
 
-    $api_credentials = array(
-        'key' => $userName,
-        'secret' => $pass
-    );
-
-    $file_path = $queryParam['image'];
 
 
-        $resp = $client->post('http://api.imagga.com/v1/content', ['auth' => [$userName,$pass],
-            'multipart' => [
-                [
-                    'name'     => 'file',
-                    'contents' => fopen( $file_path, 'r')
-                ]
-            ]
-        ]);
-        $responseBody = $resp->getBody();
-        $check = json_decode($responseBody);
-        if(!empty($check->status) && $check->status == 'error')
-        {
-            $check = false;
-        } else {
-            $check = true;
-        }
-
-        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204']) && $check) {
+        $resp =  $client->request('GET', $url ,['auth' => [$userName,$pass] ] );
 
 
-            $result['callback'] = 'success';
-            $result['contextWrites']['to'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
-            if(empty($result['contextWrites']['to'])) {
-                $result['contextWrites']['to']['status_msg'] = "Api return no results";
+
+        if(in_array($resp->getStatusCode(), ['200', '201', '202', '203', '204'])) {
+
+            $dataBody = $resp->getBody()->getContents();
+            $check = json_decode($dataBody);
+            if(!empty($check->unsuccessful))
+            {
+                $result['callback'] = 'error';
+                $result['contextWrites']['to']['status_code'] = 'API_ERROR';
+                $result['contextWrites']['to']['status_msg'] = $dataBody;
+            } else {
+                $result['callback'] = 'success';
+                $result['contextWrites']['to'] = array('result' =>$dataBody );
             }
+
+
+
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-            $result['contextWrites']['to']['status_msg'] = json_decode($responseBody);
+            $result['contextWrites']['to']['status_msg'] = $resp->getBody()->getContents();
         }
-
-
-
-     } catch (\GuzzleHttp\Exception\ClientException $exception) {
+    } catch (\GuzzleHttp\Exception\ClientException $exception) {
         $responseBody = $exception->getResponse()->getBody()->getContents();
         if(empty(json_decode($responseBody))) {
             $out = $responseBody;
@@ -119,11 +142,6 @@ $app->post('/api/Imagga/uploadImage', function ($request, $response) {
     }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
-
-
-
-
-      return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
 
 });
