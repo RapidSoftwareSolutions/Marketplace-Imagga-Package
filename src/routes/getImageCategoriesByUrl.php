@@ -84,10 +84,10 @@ $app->post('/api/Imagga/getImageCategoriesByUrl', function ($request, $response)
             {
                 $result['callback'] = 'error';
                 $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-                $result['contextWrites']['to']['status_msg'] = $dataBody;
+                $result['contextWrites']['to']['status_msg'] = json_decode($dataBody);
             } else {
                 $result['callback'] = 'success';
-                $result['contextWrites']['to'] = array('result' =>$dataBody );
+                $result['contextWrites']['to'] = array('result' => $dataBody );
             }
 
 
