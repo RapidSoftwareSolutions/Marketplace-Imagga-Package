@@ -86,6 +86,18 @@
 			"description": "By sending image url to the tagImageByUrl endpoint you can get a list of many automatically suggested textual tags.",
 			"args": [
 				{
+					"name": "key",
+					"type": "credentials",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "credentials",
+					"info": "API secret.",
+					"required": true
+				},
+				{
 					"name": "imageUrl",
 					"type": "List",
 					"info": "Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.",
@@ -120,18 +132,6 @@
 					"type": "Number",
 					"info": "Limits the number of tags in the result to the number you set.",
 					"required": false
-				},
-				{
-					"name": "key",
-					"type": "credentials",
-					"info": "API key.",
-					"required": true
-				},
-				{
-					"name": "secret",
-					"type": "credentials",
-					"info": "API secret.",
-					"required": true
 				}
 
 

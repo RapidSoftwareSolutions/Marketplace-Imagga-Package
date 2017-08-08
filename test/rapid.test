@@ -1,0 +1,290 @@
+{
+	"name": "Imagga",
+	"description": "The Imagga API is a set of image understanding and analysis technologies available as a web service that allows you to automate the process of analyzing, organizing and searching through large collections of unstructured images.",
+	"connect": {
+		"username": "qa-project",
+		"password": "481bab2d-e8fe-4214-8714-bab8157356e4"
+	},
+	"dependencies": {
+
+	},
+	"blocks": [
+		{
+			"name": "tagImageById",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}, 			
+				{
+					"key": "contentId",
+					"value": []
+				}, 			
+				{
+					"key": "showTagInformation",
+					"value": ""
+				}, 			
+				{
+					"key": "language",
+					"value": []
+				}, 			
+				{
+					"key": "limit",
+					"value": 0
+				}
+			]
+		}, 		
+		{
+			"name": "tagImageByUrl",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "imageUrl",
+					"value": []
+				}, 			
+				{
+					"key": "showTagInformation",
+					"value": ""
+				}, 			
+				{
+					"key": "language",
+					"value": []
+				}, 			
+				{
+					"key": "limit",
+					"value": 0
+				}, 			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}
+			]
+		}, 		
+		{
+			"name": "getAllCategorizers",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}
+			]
+		}, 		
+		{
+			"name": "deleteImage",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}, 			
+				{
+					"key": "contentId",
+					"value": ""
+				}
+			]
+		}, 		
+		{
+			"name": "uploadImage",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}, 			
+				{
+					"key": "imageFile",
+					"value": ""
+				}
+			]
+		}, 		
+		{
+			"name": "getImageCategoriesByUrl",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}, 			
+				{
+					"key": "categorizerId",
+					"value": ""
+				}, 			
+				{
+					"key": "imageUrl",
+					"value": []
+				}, 			
+				{
+					"key": "language",
+					"value": []
+				}
+			]
+		}, 		
+		{
+			"name": "getImageCategoriesById",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}, 			
+				{
+					"key": "categorizerId",
+					"value": ""
+				}, 			
+				{
+					"key": "contentId",
+					"value": []
+				}, 			
+				{
+					"key": "language",
+					"value": []
+				}
+			]
+		}, 		
+		{
+			"name": "getCropOptionsByUrl",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}, 			
+				{
+					"key": "imageUrl",
+					"value": []
+				}, 			
+				{
+					"key": "resolutionPair",
+					"value": []
+				}, 			
+				{
+					"key": "scaling",
+					"value": ""
+				}
+			]
+		}, 		
+		{
+			"name": "getCropOptionsById",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}, 			
+				{
+					"key": "contentId",
+					"value": []
+				}, 			
+				{
+					"key": "resolutionPair",
+					"value": []
+				}, 			
+				{
+					"key": "scaling",
+					"value": ""
+				}
+			]
+		}, 		
+		{
+			"name": "getImageColorExtractionByUrl",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}, 			
+				{
+					"key": "imageUrl",
+					"value": []
+				}, 			
+				{
+					"key": "extractOverallColors",
+					"value": ""
+				}, 			
+				{
+					"key": "extractObjectColors",
+					"value": ""
+				}
+			]
+		}, 		
+		{
+			"name": "getImageColorExtractionById",
+			"note": "",
+			"skip": false,
+			"params": [			
+				{
+					"key": "key",
+					"value": ""
+				}, 			
+				{
+					"key": "secret",
+					"value": ""
+				}, 			
+				{
+					"key": "contentId",
+					"value": []
+				}, 			
+				{
+					"key": "extractOverallColors",
+					"value": ""
+				}, 			
+				{
+					"key": "extractObjectColors",
+					"value": ""
+				}
+			]
+		}
+	]
+}
