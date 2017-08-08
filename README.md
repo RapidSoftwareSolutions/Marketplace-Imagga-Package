@@ -13,7 +13,6 @@ By sending image content id to the taggingImageById endpoint you can get a list 
 
 | Field             | Type       | Description
 |-------------------|------------|----------
-| imageUrl          | List       | Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.
 | contentId         | List       | You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.
 | showTagInformation| Select     | Whether to return some additional information about each of the tags or not.
 | language          | List       | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.Example - en.
@@ -27,7 +26,6 @@ By sending image url to the taggingImageByUrl endpoint you can get a list of man
 | Field             | Type       | Description
 |-------------------|------------|----------
 | imageUrl          | List       | Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.
-| contentId         | List       | You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.
 | showTagInformation| Select     | Whether to return some additional information about each of the tags or not.
 | language          | List       | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.Example - en.
 | limit             | Number     | Limits the number of tags in the result to the number you set.
@@ -49,10 +47,10 @@ Delete an uploaded file.
 |----------|------------|----------
 | key      | credentials| API key.
 | secret   | credentials| API secret.
-| contentId| String     | Image content id.Obtained with uploadeImage endpoits.
+| contentId| String     | Image content id.Obtained with uploadImage endpoits.
 
-## Imagga.uploadeImage
-Using the uploadeImage endpoint you can upload a file (image or video) for processing by one of the other Imagga API endpoint.
+## Imagga.uploadImage
+Using the uploadImage endpoint you can upload a file (image or video) for processing by one of the other Imagga API endpoint.
 
 | Field    | Type       | Description
 |----------|------------|----------
@@ -69,7 +67,6 @@ By sending image url and categorizerId from getAllCategoriez endpoint to the cat
 | secret       | credentials| API secret.
 | categorizerId| String     | The categorizer id.
 | imageUrl     | List       | URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.
-| contentId    | List       | You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.
 | language     | List       | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.Example - en.
 
 ## Imagga.categorizationsImageById
@@ -80,11 +77,10 @@ By sending image url and categorizerId from getAllCategoriez endpoint to the cat
 | key          | credentials| API key.
 | secret       | credentials| API secret.
 | categorizerId| String     | The categorizer id.
-| imageUrl     | List       | URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.
 | contentId    | List       | You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.Example - en.
 | language     | List       | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.
 
-## Imagga.croppingsImageByUrl
+## Imagga.croppingImageByUrl
 The technology behind this endpoint analyzes the pixel content of each given image url in order to find the most “visually important” areas in the image.
 
 | Field         | Type       | Description
@@ -92,18 +88,16 @@ The technology behind this endpoint analyzes the pixel content of each given ima
 | key           | credentials| API key.
 | secret        | credentials| API secret.
 | imageUrl      | List       | A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.
-| contentId     | List       | You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.
 | resolutionPair| List       | Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.
 | scaling       | Select     | Whether the cropping coordinates should exactly match the requested resolutions or just preserve their aspect ratios and let you resize the cropped image later.
 
-## Imagga.croppingsImageById
+## Imagga.croppingImageById
 The technology behind this endpoint analyzes the pixel content of each given image content id in order to find the most “visually important” areas in the image.
 
 | Field         | Type       | Description
 |---------------|------------|----------
 | key           | credentials| API key.
 | secret        | credentials| API secret.
-| imageUrl      | List       | A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.
 | contentId     | List       | You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.
 | resolutionPair| List       | Resolution pair in the form (width)x(height) where ‘x’ is just the small letter x. You can provide several resolutions just by providing several resolution parameters as with the urls.
 | scaling       | Select     | Whether the cropping coordinates should exactly match the requested resolutions or just preserve their aspect ratios and let you resize the cropped image later.
@@ -116,9 +110,8 @@ Analyse and extract the predominant colors from one or several url images.
 | key                 | credentials| API key.
 | secret              | credentials| API secret.
 | imageUrl            | List       | Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.
-| contentId           | List       | You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.
 | extractOverallColors| Select     | Specify whether the overall image colors should be extracted.
-| extractObjectColors | Select     | pecify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.
+| extractObjectColors | Select     | Specify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.
 
 ## Imagga.analyseColorImageById
 Analyse and extract the predominant colors from one or several images content id.
@@ -127,8 +120,7 @@ Analyse and extract the predominant colors from one or several images content id
 |---------------------|------------|----------
 | key                 | credentials| API key.
 | secret              | credentials| API secret.
-| imageUrl            | List       | Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.
 | contentId           | List       | You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.
 | extractOverallColors| Select     | Specify whether the overall image colors should be extracted.
-| extractObjectColors | Select     | pecify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.
+| extractObjectColors | Select     | Specify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.
 

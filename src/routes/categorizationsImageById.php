@@ -7,7 +7,6 @@ $app->post('/api/Imagga/categorizationsImageById', function ($request, $response
         "key" => "key",
         "secret" => "secret",
         "categorizerId" => "categorizerId",
-        "imageUrl" => "url",
         "contentId" => "content",
         "language" => "language"
     );
@@ -28,11 +27,6 @@ $app->post('/api/Imagga/categorizationsImageById', function ($request, $response
     $url .= $postData['args']['categorizerId']."?";
     unset($postData['args']['categorizerId']);
 
-    if(!empty($postData['args']['imageUrl']))
-    {
-        $url .= '&url='.implode('&url=',$postData['args']['imageUrl']);
-        unset($postData['args']['imageUrl']);
-    }
     //adding content id in url
     if(!empty($postData['args']['contentId']))
     {

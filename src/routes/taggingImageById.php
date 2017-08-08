@@ -6,7 +6,6 @@ $app->post('/api/Imagga/taggingImageById', function ($request, $response) {
     $option = array(
         "key" => "key",
         "secret" => "secret",
-        "imageUrl" => "url",
         "contentId" => "content",
         "language" => "language",
         "showTagInfo" => "verbose"
@@ -25,12 +24,6 @@ $app->post('/api/Imagga/taggingImageById', function ($request, $response) {
 
 
     $url = "https://api.imagga.com/v1/tagging?";
-    //adding images in url
-    if(!empty($postData['args']['imageUrl']))
-    {
-        $url .= '&url='.implode('&url=',$postData['args']['imageUrl']);
-        unset($postData['args']['imageUrl']);
-    }
   //  adding content id in url
     if(!empty($postData['args']['contentId']))
     {

@@ -1,12 +1,11 @@
 <?php
 
-$app->post('/api/Imagga/croppingsImageById', function ($request, $response) {
+$app->post('/api/Imagga/croppingImageById', function ($request, $response) {
     ini_set('display_errors',1);
 
     $option = array(
         "key" => "key",
         "secret" => "secret",
-        "imageUrl" => "url",
         "contentId" => "content",
         "resolutionPair" => "resolution",
         "scaling" => "no_scaling"
@@ -26,11 +25,6 @@ $app->post('/api/Imagga/croppingsImageById', function ($request, $response) {
     //form full url
     $url = "https://api.imagga.com/v1/croppings?";
 
-    if(!empty($postData['args']['imageUrl']))
-    {
-        $url .= '&url='.implode('&url=',$postData['args']['imageUrl']);
-        unset($postData['args']['imageUrl']);
-    }
     //adding content id in url
     if(!empty($postData['args']['contentId']))
     {

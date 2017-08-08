@@ -1,6 +1,6 @@
 <?php
 
-$app->post('/api/Imagga/uploadeImage', function ($request, $response) {
+$app->post('/api/Imagga/uploadImage', function ($request, $response) {
     ini_set('display_errors',1);
 
     $option = array(

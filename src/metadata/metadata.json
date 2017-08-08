@@ -22,17 +22,6 @@
 			"description": "By sending image content id to the taggingImageById endpoint you can get a list of many automatically suggested textual tags.",
 			"args": [
 				{
-					"name": "imageUrl",
-					"type": "List",
-					"info": "Image URL to perform auto-tagging on. You can provide up to 5 urls for processing by sending multiple url parameters.",
-					"required": false,
-					"structure": {
-						"name": "imageUrl",
-						"type": "String",
-						"info": "Single image url."
-					}
-				},
-				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.",
@@ -107,17 +96,6 @@
 						"info": "Single url."
 					}
 
-				},
-				{
-					"name": "contentId",
-					"type": "List",
-					"info": "You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.",
-					"required": false,
-					"structure": {
-						"name": "contentId",
-						"type": "String",
-						"info": "Single content id."
-					}
 				},
 				{
 					"name": "showTagInformation",
@@ -216,7 +194,7 @@
 				{
 					"name": "contentId",
 					"type": "String",
-					"info": "Image content id.Obtained with uploadeImage endpoits.",
+					"info": "Image content id.Obtained with uploadImage endpoits.",
 					"required": true
 				}
 
@@ -234,8 +212,8 @@
 			]
 		},
 		{
-			"name": "uploadeImage",
-			"description": "Using the uploadeImage endpoint you can upload a file (image or video) for processing by one of the other Imagga API endpoint.",
+			"name": "uploadImage",
+			"description": "Using the uploadImage endpoint you can upload a file (image or video) for processing by one of the other Imagga API endpoint.",
 			"args": [
 				{
 					"name": "key",
@@ -303,17 +281,6 @@
 					}
 				},
 				{
-					"name": "contentId",
-					"type": "List",
-					"info": "You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.",
-					"required": false,
-					"structure": {
-						"name": "contentId",
-						"type": "String",
-						"info": "Single content id."
-					}
-				},
-				{
 					"name": "language",
 					"type": "List",
 					"info": "See all available languages in README.You can apply this parameter multiple times.Example - en.",
@@ -360,17 +327,6 @@
 					"required": true
 				},
 				{
-					"name": "imageUrl",
-					"type": "List",
-					"info": "URL of an image to submit for categorization. You can provide up to 10 urls for processing by sending multiple url parameters.",
-					"required": false,
-					"structure": {
-						"name": "ImageUrl",
-						"type": "String",
-						"info": "Single image url."
-					}
-				},
-				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also directly send image files for categorization by uploading the images to our uploadImage endpoint.Example - en.",
@@ -406,7 +362,7 @@
 			]
 		},
 		{
-			"name": "croppingsImageByUrl",
+			"name": "croppingImageByUrl",
 			"description": "The technology behind this endpoint analyzes the pixel content of each given image url in order to find the most “visually important” areas in the image.",
 			"args": [
 				{
@@ -430,17 +386,6 @@
 						"name": "ImageUrl",
 						"type": "String",
 						"info": "Single image url."
-					}
-				},
-				{
-					"name": "contentId",
-					"type": "List",
-					"info": "You can also directly send image files for smart-cropping analysis by uploading them to our /content endpoint and then providing the received content identifier via this parameter.",
-					"required": false,
-					"structure": {
-						"name": "contentId",
-						"type": "String",
-						"info": "Single content id."
 					}
 				},
 				{
@@ -476,7 +421,7 @@
 		},
 
 		{
-			"name": "croppingsImageById",
+			"name": "croppingImageById",
 			"description": "The technology behind this endpoint analyzes the pixel content of each given image content id in order to find the most “visually important” areas in the image.",
 			"args": [
 				{
@@ -490,18 +435,6 @@
 					"type": "credentials",
 					"info": "API secret.",
 					"required": true
-				},
-				{
-					"name": "imageUrl",
-					"type": "List",
-					"info": "A URL of the image to send for smart-cropping analysis. You can provide as many url parameters as you like in order to send multiple images for smart-cropping analysis.",
-					"required": false,
-					"structure": {
-						"name": "imageUrl",
-						"type": "String",
-						"info": "Single image url."
-					}
-
 				},
 				{
 					"name": "contentId",
@@ -574,17 +507,6 @@
 					}
 				},
 				{
-					"name": "contentId",
-					"type": "List",
-					"info": "You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.",
-					"required": false,
-					"structure": {
-						"name": "contentId",
-						"type": "String",
-						"info": "Single content id."
-					}
-				},
-				{
 					"name": "extractOverallColors",
 					"type": "Select",
 					"options":["On","Off"],
@@ -628,17 +550,6 @@
 					"required": true
 				},
 				{
-					"name": "imageUrl",
-					"type": "List",
-					"info": "Image URL to perform color extraction on. You can provide as many url parameters as you like in order to send multiple images for color extraction.",
-					"required": false,
-					"structure": {
-						"name": "imageUrl",
-						"type": "String",
-						"info": "Single image url."
-					}
-				},
-				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also send actual image files for color extraction. This is achieved by uploading the images to our uploadImage endpoint.You can provide up to 10 ids.",
@@ -663,7 +574,6 @@
 					"info": "Specify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.",
 					"required": false
 				}
-
 
 			],
 			"callbacks": [{

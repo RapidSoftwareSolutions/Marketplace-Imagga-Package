@@ -8,7 +8,6 @@ $app->post('/api/Imagga/categorizationsImageByUrl', function ($request, $respons
         "secret" => "secret",
         "categorizerId" => "categorizerId",
         "imageUrl" => "url",
-        "contentId" => "content",
         "language" => "language"
     );
     $arrayType = array();
@@ -32,12 +31,6 @@ $app->post('/api/Imagga/categorizationsImageByUrl', function ($request, $respons
     {
         $url .= '&url='.implode('&url=',$postData['args']['imageUrl']);
         unset($postData['args']['imageUrl']);
-    }
-    //adding content id in url
-    if(!empty($postData['args']['contentId']))
-    {
-        $url .= '&content='.implode('&content=',$postData['args']['contentId']);
-        unset($postData['args']['contentId']);
     }
     //adding language in url
     if(!empty($postData['args']['language']))
