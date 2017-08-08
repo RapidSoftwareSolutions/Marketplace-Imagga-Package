@@ -22,7 +22,6 @@
 			"description": "By sending image content id to the tagImageById endpoint you can get a list of many automatically suggested textual tags.",
 			"args": [
 				{
-				{
 					"name": "key",
 					"type": "credentials",
 					"info": "API key.",
@@ -34,6 +33,7 @@
 					"info": "API secret.",
 					"required": true
 				},
+				{
 					"name": "contentId",
 					"type": "List",
 					"info": "You can also directly send image files for auto-tagging by uploading them to our uploadImage endpoint and then providing the received content identifiers via this parameter.You can provide up to 5 id.",
