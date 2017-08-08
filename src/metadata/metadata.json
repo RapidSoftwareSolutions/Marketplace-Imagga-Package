@@ -595,7 +595,7 @@
 					"name": "extractObjectColors",
 					"type": "Select",
 					"options":["On","Off"],
-					"info": "pecify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.",
+					"info": "Specify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.",
 					"required": false
 				}
 
@@ -660,7 +660,7 @@
 					"name": "extractObjectColors",
 					"type": "Select",
 					"options":["On","Off"],
-					"info": "pecify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.",
+					"info": "Specify if the service should try to extract object and non-object (a.k.a. foreground and background) colors separately.",
 					"required": false
 				}
 
