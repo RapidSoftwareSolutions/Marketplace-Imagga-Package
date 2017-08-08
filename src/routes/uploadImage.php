@@ -1,7 +1,6 @@
 <?php
 
 $app->post('/api/Imagga/uploadImage', function ($request, $response) {
-    ini_set('display_errors',1);
 
     $option = array(
         "key" => "key",
@@ -120,10 +119,6 @@ $app->post('/api/Imagga/uploadImage', function ($request, $response) {
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
 
-
-
-
-      return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
 
 });

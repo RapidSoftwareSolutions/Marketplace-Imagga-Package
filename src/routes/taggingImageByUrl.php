@@ -1,7 +1,7 @@
 <?php
 
     $app->post('/api/Imagga/taggingForImageByUrl', function ($request, $response) {
-        ini_set('display_errors',1);
+
 
         $option = array(
             "key" => "key",

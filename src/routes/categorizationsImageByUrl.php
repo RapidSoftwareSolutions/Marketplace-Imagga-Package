@@ -1,7 +1,6 @@
 <?php
 
 $app->post('/api/Imagga/categorizationsImageByUrl', function ($request, $response) {
-    ini_set('display_errors',1);
 
     $option = array(
         "key" => "key",
