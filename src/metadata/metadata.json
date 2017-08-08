@@ -306,7 +306,7 @@
 		},
 		{
 			"name": "categorizationsImageById",
-			"description": "By sending image url and categorizerId from getAllCategoriez endpoint to the categorizationsImage endpoint you can get a list of many categorizers.",
+			"description": "By sending image content id and categorizerId from getAllCategoriez endpoint to the categorizationsImage endpoint you can get a list of many categorizers.",
 			"args": [
 				{
 					"name": "key",

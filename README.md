@@ -70,7 +70,7 @@ By sending image url and categorizerId from getAllCategoriez endpoint to the cat
 | language     | List       | All list [here](https://docs.imagga.com/#multi-language-support).You can apply this parameter multiple times.Example - en.
 
 ## Imagga.categorizationsImageById
-By sending image url and categorizerId from getAllCategoriez endpoint to the categorizationsImage endpoint you can get a list of many categorizers.
+By sending image content id and categorizerId from getAllCategoriez endpoint to the categorizationsImage endpoint you can get a list of many categorizers.
 
 | Field        | Type       | Description
 |--------------|------------|----------
