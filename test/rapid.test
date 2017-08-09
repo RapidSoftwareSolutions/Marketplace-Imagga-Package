@@ -13,276 +13,276 @@
 			"name": "tagImageById",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
 				{
 					"key": "key",
-					"value": ""
-				}, 			
+					"value": "{{key}}"
+				},
 				{
 					"key": "secret",
-					"value": ""
-				}, 			
+					"value": "{{secret}}"
+				},
 				{
 					"key": "contentId",
-					"value": []
-				}, 			
+					"value": ["{{contentId}}"]
+				},
 				{
 					"key": "showTagInformation",
-					"value": ""
-				}, 			
+					"value": "On"
+				},
 				{
 					"key": "language",
-					"value": []
-				}, 			
+					"value": ["{{language}}"]
+				},
 				{
 					"key": "limit",
 					"value": 0
 				}
 			]
-		}, 		
+		},
 		{
 			"name": "tagImageByUrl",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
+				{
+					"key": "key",
+					"value": "{{key}}"
+				},
+				{
+					"key": "secret",
+					"value": "{{secret}}"
+				},
 				{
 					"key": "imageUrl",
-					"value": []
-				}, 			
+					"value": ["{{imageUrl}}"]
+				},
 				{
 					"key": "showTagInformation",
-					"value": ""
-				}, 			
+					"value": "On"
+				},
 				{
 					"key": "language",
-					"value": []
-				}, 			
+					"value": ["{{language}}"]
+				},
 				{
 					"key": "limit",
 					"value": 0
-				}, 			
-				{
-					"key": "key",
-					"value": ""
-				}, 			
-				{
-					"key": "secret",
-					"value": ""
 				}
 			]
-		}, 		
+		},
 		{
 			"name": "getAllCategorizers",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
 				{
 					"key": "key",
-					"value": ""
-				}, 			
+					"value": "{{key}}"
+				},
 				{
 					"key": "secret",
-					"value": ""
+					"value": "{{secret}}"
 				}
 			]
-		}, 		
+		},
 		{
 			"name": "deleteImage",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
 				{
 					"key": "key",
-					"value": ""
-				}, 			
+					"value": "{{key}}"
+				},
 				{
 					"key": "secret",
-					"value": ""
-				}, 			
+					"value": "{{secret}}"
+				},
 				{
 					"key": "contentId",
 					"value": ""
 				}
 			]
-		}, 		
+		},
 		{
 			"name": "uploadImage",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
 				{
 					"key": "key",
-					"value": ""
-				}, 			
+					"value": "{{key}}"
+				},
 				{
 					"key": "secret",
-					"value": ""
-				}, 			
+					"value": "{{secret}}"
+				},
 				{
 					"key": "imageFile",
-					"value": ""
+					"value": "http://svistanet.com/wp-content/uploads/2015/02/priroda-zimoy-foto-13.jpg"
 				}
 			]
-		}, 		
+		},
 		{
 			"name": "getImageCategoriesByUrl",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
 				{
 					"key": "key",
-					"value": ""
-				}, 			
+					"value": "{{key}}"
+				},
 				{
 					"key": "secret",
-					"value": ""
-				}, 			
+					"value": "{{secret}}"
+				},
 				{
 					"key": "categorizerId",
 					"value": ""
-				}, 			
+				},
 				{
 					"key": "imageUrl",
-					"value": []
-				}, 			
+					"value": ["{{imageUrl}}"]
+				},
 				{
 					"key": "language",
-					"value": []
+					"value": ["{{language}}"]
 				}
 			]
-		}, 		
+		},
 		{
 			"name": "getImageCategoriesById",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
 				{
 					"key": "key",
-					"value": ""
-				}, 			
+					"value": "{{key}}"
+				},
 				{
 					"key": "secret",
-					"value": ""
-				}, 			
+					"value": "{{secret}}"
+				},
 				{
 					"key": "categorizerId",
 					"value": ""
-				}, 			
+				},
 				{
 					"key": "contentId",
-					"value": []
-				}, 			
+					"value": ["{{contentId}}"]
+				},
 				{
 					"key": "language",
-					"value": []
+					"value": ["{{language}}"]
 				}
 			]
-		}, 		
+		},
 		{
 			"name": "getCropOptionsByUrl",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
 				{
 					"key": "key",
-					"value": ""
-				}, 			
+					"value": "{{key}}"
+				},
 				{
 					"key": "secret",
-					"value": ""
-				}, 			
+					"value": "{{secret}}"
+				},
 				{
 					"key": "imageUrl",
-					"value": []
-				}, 			
+					"value": ["{{imageUrl}}"]
+				},
 				{
 					"key": "resolutionPair",
-					"value": []
-				}, 			
+					"value": ["100x100","200x200"]
+				},
 				{
 					"key": "scaling",
-					"value": ""
+					"value": "On"
 				}
 			]
-		}, 		
+		},
 		{
 			"name": "getCropOptionsById",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
 				{
 					"key": "key",
-					"value": ""
-				}, 			
+					"value": "{{key}}"
+				},
 				{
 					"key": "secret",
-					"value": ""
-				}, 			
+					"value": "{{secret}}"
+				},
 				{
 					"key": "contentId",
-					"value": []
-				}, 			
+					"value": ["{{contentId}}"]
+				},
 				{
 					"key": "resolutionPair",
-					"value": []
-				}, 			
+					"value": ["100x100","200x200"]
+				},
 				{
 					"key": "scaling",
-					"value": ""
+					"value": "On"
 				}
 			]
-		}, 		
+		},
 		{
 			"name": "getImageColorExtractionByUrl",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
 				{
 					"key": "key",
-					"value": ""
-				}, 			
+					"value": "{{key}}"
+				},
 				{
 					"key": "secret",
-					"value": ""
-				}, 			
+					"value": "{{secret}}"
+				},
 				{
 					"key": "imageUrl",
-					"value": []
-				}, 			
+					"value": ["{{imageUrl}}"]
+				},
 				{
 					"key": "extractOverallColors",
-					"value": ""
-				}, 			
+					"value": "On"
+				},
 				{
 					"key": "extractObjectColors",
-					"value": ""
+					"value": "On"
 				}
 			]
-		}, 		
+		},
 		{
 			"name": "getImageColorExtractionById",
 			"note": "",
 			"skip": false,
-			"params": [			
+			"params": [
 				{
 					"key": "key",
-					"value": ""
-				}, 			
+					"value": "{{key}}"
+				},
 				{
 					"key": "secret",
-					"value": ""
-				}, 			
+					"value": "{{secret}}"
+				},
 				{
 					"key": "contentId",
-					"value": []
-				}, 			
+					"value": ["{{contentId}}"]
+				},
 				{
 					"key": "extractOverallColors",
-					"value": ""
-				}, 			
+					"value": "On"
+				},
 				{
 					"key": "extractObjectColors",
-					"value": ""
+					"value": "On"
 				}
 			]
 		}

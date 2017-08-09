@@ -40,15 +40,6 @@ Get a list of all available categorizers for you.
 | key   | credentials| API key.
 | secret| credentials| API secret.
 
-## Imagga.deleteImage
-Delete an uploaded file.
-
-| Field    | Type       | Description
-|----------|------------|----------
-| key      | credentials| API key.
-| secret   | credentials| API secret.
-| contentId| String     | Image content id.Obtained with uploadImage endpoits.
-
 ## Imagga.uploadImage
 Using the uploadImage endpoint you can upload a file (image or video) for processing by one of the other Imagga API endpoint.
 
@@ -57,6 +48,15 @@ Using the uploadImage endpoint you can upload a file (image or video) for proces
 | key      | credentials| API key.
 | secret   | credentials| API secret.
 | imageFile| File       | Uploaded image.
+
+## Imagga.deleteImage
+Delete an uploaded file.
+
+| Field    | Type       | Description
+|----------|------------|----------
+| key      | credentials| API key.
+| secret   | credentials| API secret.
+| contentId| String     | Image content id.Obtained with uploadImage endpoits.
 
 ## Imagga.getImageCategoriesByUrl
 By sending image url and categorizerId from getAllCategoriez endpoint to this endpoint you can get a list of many categorizers.

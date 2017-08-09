@@ -176,42 +176,6 @@
 			]
 		},
 		{
-			"name": "deleteImage",
-			"description": "Delete an uploaded file.",
-			"args": [
-				{
-					"name": "key",
-					"type": "credentials",
-					"info": "API key.",
-					"required": true
-				},
-				{
-					"name": "secret",
-					"type": "credentials",
-					"info": "API secret.",
-					"required": true
-				},
-				{
-					"name": "contentId",
-					"type": "String",
-					"info": "Image content id.Obtained with uploadImage endpoits.",
-					"required": true
-				}
-
-
-
-			],
-			"callbacks": [{
-				"name": "error",
-				"info": "Error"
-			},
-				{
-					"name": "success",
-					"info": "Success"
-				}
-			]
-		},
-		{
 			"name": "uploadImage",
 			"description": "Using the uploadImage endpoint you can upload a file (image or video) for processing by one of the other Imagga API endpoint.",
 			"args": [
@@ -231,6 +195,42 @@
 					"name": "imageFile",
 					"type": "File",
 					"info": "Uploaded image.",
+					"required": true
+				}
+
+
+
+			],
+			"callbacks": [{
+				"name": "error",
+				"info": "Error"
+			},
+				{
+					"name": "success",
+					"info": "Success"
+				}
+			]
+		},
+		{
+			"name": "deleteImage",
+			"description": "Delete an uploaded file.",
+			"args": [
+				{
+					"name": "key",
+					"type": "credentials",
+					"info": "API key.",
+					"required": true
+				},
+				{
+					"name": "secret",
+					"type": "credentials",
+					"info": "API secret.",
+					"required": true
+				},
+				{
+					"name": "contentId",
+					"type": "String",
+					"info": "Image content id.Obtained with uploadImage endpoits.",
 					"required": true
 				}
 
